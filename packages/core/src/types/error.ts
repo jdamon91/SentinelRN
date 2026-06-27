@@ -17,7 +17,7 @@ export interface SentinelErrorShape {
 export class SentinelError extends Error implements SentinelErrorShape {
   readonly code: string;
   readonly module: SentinelErrorModule;
-  override readonly cause?: unknown;
+  readonly cause?: unknown;
 
   constructor(shape: SentinelErrorShape) {
     super(shape.message);
