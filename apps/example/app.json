@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "SentinelRN Example",
+    "slug": "sentinelrn-example",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sentinelrn.example"
+    },
+    "android": {
+      "package": "com.sentinelrn.example"
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
