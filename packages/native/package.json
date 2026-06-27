@@ -17,7 +17,14 @@
       "require": "./dist/index.cjs"
     }
   },
-  "files": ["dist", "src", "android", "ios", "SentinelRNNative.podspec", "README.md"],
+  "files": [
+    "dist",
+    "src",
+    "android",
+    "ios",
+    "SentinelRNNative.podspec",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsup",
     "typecheck": "tsc --noEmit -p tsconfig.json",
@@ -31,8 +38,12 @@
     "react-native": ">=0.73.0"
   },
   "peerDependenciesMeta": {
-    "react": { "optional": true },
-    "react-native": { "optional": true }
+    "react": {
+      "optional": true
+    },
+    "react-native": {
+      "optional": true
+    }
   },
   "publishConfig": {
     "access": "public"

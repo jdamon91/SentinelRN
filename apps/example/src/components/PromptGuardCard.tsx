@@ -72,10 +72,7 @@ export function PromptGuardCard({ policyMode }: PromptGuardCardProps) {
 
       {result ? (
         <View
-          style={[
-            styles.result,
-            { borderColor: result.allowed ? colors.low : colors.critical },
-          ]}
+          style={[styles.result, { borderColor: result.allowed ? colors.low : colors.critical }]}
         >
           <Text style={styles.resultTitle}>
             {result.allowed ? "ALLOWED" : "BLOCKED"} · policy "{result.policy}" · action{" "}

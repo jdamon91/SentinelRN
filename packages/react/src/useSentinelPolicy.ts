@@ -1,9 +1,4 @@
-import type {
-  AIGuardResult,
-  PolicyDecision,
-  SentinelPolicy,
-  ThreatReport,
-} from "@sentinelrn/core";
+import type { AIGuardResult, PolicyDecision, SentinelPolicy, ThreatReport } from "@sentinelrn/core";
 import { useCallback } from "react";
 import { useSentinel } from "./useSentinel.js";
 

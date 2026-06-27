@@ -23,27 +23,30 @@ export const INJECTION_RULES: InjectionRule[] = [
     severity: "high",
     confidence: "high",
     message: "Attempt to ignore or override previous instructions.",
-    pattern: /\b(?:ignore|disregard|forget)\b[^.?!\n]{0,40}\b(?:previous|prior|above|earlier|all)\b[^.?!\n]{0,20}\b(?:instructions?|prompts?|rules?|context)\b/i,
+    pattern:
+      /\b(?:ignore|disregard|forget)\b[^.?!\n]{0,40}\b(?:previous|prior|above|earlier|all)\b[^.?!\n]{0,20}\b(?:instructions?|prompts?|rules?|context)\b/i,
   },
   {
     id: "reveal_system_prompt",
     severity: "high",
     confidence: "high",
     message: "Attempt to reveal hidden or system instructions.",
-    pattern: /\b(?:reveal|show|print|repeat|output|tell me|what (?:are|is|were))\b[^.?!\n]{0,40}\b(?:system|initial|original|hidden|developer)\b[^.?!\n]{0,15}\b(?:prompt|instructions?|message)\b/i,
+    pattern:
+      /\b(?:reveal|show|print|repeat|output|tell me|what (?:are|is|were))\b[^.?!\n]{0,40}\b(?:system|initial|original|hidden|developer)\b[^.?!\n]{0,15}\b(?:prompt|instructions?|message)\b/i,
   },
   {
     id: "override_rules",
     severity: "high",
     confidence: "medium",
     message: "Attempt to override safety rules or restrictions.",
-    pattern: /\b(?:override|bypass|disable|turn off|remove)\b[^.?!\n]{0,30}\b(?:safety|guardrails?|restrictions?|filters?|rules?|limitations?)\b/i,
+    pattern:
+      /\b(?:override|bypass|disable|turn off|remove)\b[^.?!\n]{0,30}\b(?:safety|guardrails?|restrictions?|filters?|rules?|limitations?)\b/i,
   },
   {
     id: "dan_jailbreak",
     severity: "high",
     confidence: "medium",
-    message: "Known jailbreak phrasing detected (e.g. \"DAN\" / \"do anything now\").",
+    message: 'Known jailbreak phrasing detected (e.g. "DAN" / "do anything now").',
     pattern: /\b(?:do anything now|DAN mode|jailbreak|developer mode enabled)\b/i,
   },
   {
@@ -51,7 +54,8 @@ export const INJECTION_RULES: InjectionRule[] = [
     severity: "medium",
     confidence: "medium",
     message: "Attempt to assume an unrestricted persona.",
-    pattern: /\b(?:you are now|act as|pretend (?:to be|you are)|roleplay as)\b[^.?!\n]{0,50}\b(?:no|without|free of)\b[^.?!\n]{0,20}\b(?:restrictions?|rules?|filters?|limits?|guidelines?)\b/i,
+    pattern:
+      /\b(?:you are now|act as|pretend (?:to be|you are)|roleplay as)\b[^.?!\n]{0,50}\b(?:no|without|free of)\b[^.?!\n]{0,20}\b(?:restrictions?|rules?|filters?|limits?|guidelines?)\b/i,
   },
   {
     id: "instruction_injection_marker",

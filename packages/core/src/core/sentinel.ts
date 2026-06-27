@@ -1,6 +1,10 @@
 import { guardPrompt as guardPromptImpl } from "../ai/guard.js";
 import { inspectAndRedact, redact } from "../ai/redaction.js";
-import { createIntegrityModule, type IntegrityModule, type IntegrityProvider } from "../integrity/index.js";
+import {
+  createIntegrityModule,
+  type IntegrityModule,
+  type IntegrityProvider,
+} from "../integrity/index.js";
 import { evaluateAI, evaluateIntegrity } from "../policy/index.js";
 import type {
   AIGuardPolicy,

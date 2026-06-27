@@ -33,15 +33,19 @@ describe("aggregateScore", () => {
 
   it("combines signals so more risk pushes the score up but saturates", () => {
     const one = aggregateScore([sig("medium", "high")]);
-    const many = aggregateScore([sig("medium", "high"), sig("medium", "high"), sig("medium", "high")]);
+    const many = aggregateScore([
+      sig("medium", "high"),
+      sig("medium", "high"),
+      sig("medium", "high"),
+    ]);
     expect(many).toBeGreaterThan(one);
     expect(many).toBeLessThanOrEqual(100);
   });
 
   it("never exceeds 100 even with many critical signals", () => {
-    expect(aggregateScore(Array.from({ length: 10 }, () => sig("critical", "high")))).toBeLessThanOrEqual(
-      100,
-    );
+    expect(
+      aggregateScore(Array.from({ length: 10 }, () => sig("critical", "high"))),
+    ).toBeLessThanOrEqual(100);
   });
 });
 

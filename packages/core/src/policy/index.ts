@@ -125,7 +125,9 @@ export function evaluateAI(result: AIGuardResult, policy: SentinelPolicy = "warn
   const reasons: string[] = [];
 
   const hasInjection = result.findings.some((f) => f.type === "prompt_injection");
-  const hasHighSeverity = result.findings.some((f) => severityRank(f.severity) >= severityRank("high"));
+  const hasHighSeverity = result.findings.some(
+    (f) => severityRank(f.severity) >= severityRank("high"),
+  );
 
   if (result.findings.length === 0) {
     reasons.push("No sensitive content or injection detected in prompt.");

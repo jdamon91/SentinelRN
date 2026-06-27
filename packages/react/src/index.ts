@@ -7,16 +7,16 @@
 export { SentinelContext } from "./context.js";
 export { SentinelProvider, type SentinelProviderProps } from "./SentinelProvider.js";
 export {
-  useAISecurity,
   type UseAISecurityResult,
+  useAISecurity,
 } from "./useAISecurity.js";
 export {
-  useDeviceIntegrity,
   type UseDeviceIntegrityOptions,
   type UseDeviceIntegrityResult,
+  useDeviceIntegrity,
 } from "./useDeviceIntegrity.js";
 export { useSentinel } from "./useSentinel.js";
 export {
-  useSentinelPolicy,
   type UseSentinelPolicyResult,
+  useSentinelPolicy,
 } from "./useSentinelPolicy.js";

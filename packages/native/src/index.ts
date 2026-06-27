@@ -17,8 +17,8 @@ export {
 } from "./nativeModule.js";
 export {
   createNativeIntegrityProvider,
-  nativeIntegrityProvider,
   type NativeProviderOptions,
+  nativeIntegrityProvider,
   snapshotToSignals,
 } from "./provider.js";
 export { registerSentinelNative } from "./register.js";

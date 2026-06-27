@@ -14,56 +14,16 @@
  * advanced use and extension, but most apps only need `SentinelRN`.
  */
 
-// ── Primary API ──────────────────────────────────────────────────────────────
-export { createSentinel, type Sentinel, SentinelRN, VERSION } from "./core/sentinel.js";
-export { DEFAULT_CONFIG, resolveConfig } from "./core/config.js";
-
-// ── Shared types ─────────────────────────────────────────────────────────────
-export * from "./types/index.js";
-
-// ── Integrity ────────────────────────────────────────────────────────────────
-export {
-  createIntegrityModule,
-  type IntegrityDeps,
-  type IntegrityModule,
-  type IntegrityProvider,
-} from "./integrity/index.js";
-
-// ── Risk engine ──────────────────────────────────────────────────────────────
-export {
-  aggregateScore,
-  assessRisk,
-  CONFIDENCE_MULTIPLIER,
-  isCompromised,
-  recommendedActionFromRisk,
-  type RiskAssessment,
-  riskLevelFromScore,
-  RISK_THRESHOLDS,
-  type Scorable,
-  SEVERITY_WEIGHT,
-  signalScore,
-} from "./risk/index.js";
-
-// ── Threat engine ────────────────────────────────────────────────────────────
-export {
-  buildThreatReport,
-  type BuildReportOptions,
-  defaultsForType,
-  type NormalizeOptions,
-  normalizeSignal,
-  normalizeSignals,
-} from "./threat/index.js";
-
 // ── AI security ──────────────────────────────────────────────────────────────
 export {
-  detectFindings,
   type DetectOptions,
+  detectFindings,
   findInjections,
-  guardPrompt,
   type GuardOptions,
+  guardPrompt,
   INJECTION_RULES,
-  inspectAndRedact,
   type InjectionRule,
+  inspectAndRedact,
   luhnValid,
   maskMatch,
   PATTERN_DETECTORS,
@@ -74,9 +34,49 @@ export {
   SECRET_DETECTORS,
   ssnValid,
 } from "./ai/index.js";
+export { DEFAULT_CONFIG, resolveConfig } from "./core/config.js";
+// ── Primary API ──────────────────────────────────────────────────────────────
+export { createSentinel, type Sentinel, SentinelRN, VERSION } from "./core/sentinel.js";
 
+// ── Integrity ────────────────────────────────────────────────────────────────
+export {
+  createIntegrityModule,
+  type IntegrityDeps,
+  type IntegrityModule,
+  type IntegrityProvider,
+} from "./integrity/index.js";
 // ── Policy engine ────────────────────────────────────────────────────────────
-export { evaluateAI, evaluateIntegrity, type ResolvedPolicy, resolvePolicy } from "./policy/index.js";
+export {
+  evaluateAI,
+  evaluateIntegrity,
+  type ResolvedPolicy,
+  resolvePolicy,
+} from "./policy/index.js";
+// ── Risk engine ──────────────────────────────────────────────────────────────
+export {
+  aggregateScore,
+  assessRisk,
+  CONFIDENCE_MULTIPLIER,
+  isCompromised,
+  RISK_THRESHOLDS,
+  type RiskAssessment,
+  recommendedActionFromRisk,
+  riskLevelFromScore,
+  type Scorable,
+  SEVERITY_WEIGHT,
+  signalScore,
+} from "./risk/index.js";
+// ── Threat engine ────────────────────────────────────────────────────────────
+export {
+  type BuildReportOptions,
+  buildThreatReport,
+  defaultsForType,
+  type NormalizeOptions,
+  normalizeSignal,
+  normalizeSignals,
+} from "./threat/index.js";
+// ── Shared types ─────────────────────────────────────────────────────────────
+export * from "./types/index.js";
 
 // ── Utilities ────────────────────────────────────────────────────────────────
 export { clamp, slugId } from "./utils/index.js";

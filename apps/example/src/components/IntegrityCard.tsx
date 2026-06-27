@@ -1,5 +1,5 @@
 import type { PolicyMode } from "@sentinelrn/core";
-import { useSentinel, useDeviceIntegrity, useSentinelPolicy } from "@sentinelrn/react";
+import { useDeviceIntegrity, useSentinel, useSentinelPolicy } from "@sentinelrn/react";
 import { useEffect } from "react";
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
 import { createDemoProvider, type DemoScenario } from "../demoProvider.js";
@@ -55,7 +55,9 @@ export function IntegrityCard({ scenario, onScenarioChange, policyMode }: Integr
         <View>
           <View style={styles.scoreRow}>
             <View style={[styles.scoreCircle, { borderColor: riskColor(riskLevel) }]}>
-              <Text style={[styles.scoreValue, { color: riskColor(riskLevel) }]}>{report.score}</Text>
+              <Text style={[styles.scoreValue, { color: riskColor(riskLevel) }]}>
+                {report.score}
+              </Text>
               <Text style={styles.scoreMax}>/ 100</Text>
             </View>
             <View style={{ flex: 1, gap: 6 }}>

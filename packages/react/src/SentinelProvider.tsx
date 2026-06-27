@@ -1,4 +1,4 @@
-import { type Sentinel, SentinelRN, type SentinelConfig } from "@sentinelrn/core";
+import { type Sentinel, type SentinelConfig, SentinelRN } from "@sentinelrn/core";
 import { type ReactNode, useMemo } from "react";
 import { SentinelContext } from "./context.js";
 

@@ -115,7 +115,10 @@ export function normalizeSignal(raw: RawSignal, options: NormalizeOptions = {}):
 }
 
 /** Normalize a batch of raw observations. */
-export function normalizeSignals(raws: readonly RawSignal[], options?: NormalizeOptions): ThreatSignal[] {
+export function normalizeSignals(
+  raws: readonly RawSignal[],
+  options?: NormalizeOptions,
+): ThreatSignal[] {
   return raws.map((raw) => normalizeSignal(raw, options));
 }
 

@@ -46,7 +46,10 @@ function actionForFinding(finding: AIFinding): AIRecommendedAction {
 
 /** The strongest action argued for across all findings. */
 function baselineAction(findings: readonly AIFinding[]): AIRecommendedAction {
-  return findings.reduce<AIRecommendedAction>((acc, f) => maxAction(acc, actionForFinding(f)), "allow");
+  return findings.reduce<AIRecommendedAction>(
+    (acc, f) => maxAction(acc, actionForFinding(f)),
+    "allow",
+  );
 }
 
 function hasSeverityAtLeast(findings: readonly AIFinding[], min: Severity): boolean {

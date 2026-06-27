@@ -1,0 +1,57 @@
+{
+  "files": {
+    "packages/native/.turbo/turbo-build.log": {
+      "size": 631,
+      "mtime_nanos": 1782575543499018804,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist/index.cjs.map": {
+      "size": 10060,
+      "mtime_nanos": 1782575543208766887,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist/index.cjs": {
+      "size": 3727,
+      "mtime_nanos": 1782575543208211725,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist/index.d.ts": {
+      "size": 3783,
+      "mtime_nanos": 1782575543482150646,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist/index.js": {
+      "size": 3471,
+      "mtime_nanos": 1782575543208208141,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist": { "size": 0, "mtime_nanos": 0, "mode": 0, "is_dir": true },
+    "packages/native/dist/index.d.cts": {
+      "size": 3783,
+      "mtime_nanos": 1782575543482146687,
+      "mode": 420,
+      "is_dir": false
+    },
+    "packages/native/dist/index.js.map": {
+      "size": 10044,
+      "mtime_nanos": 1782575543208698221,
+      "mode": 420,
+      "is_dir": false
+    }
+  },
+  "order": [
+    "packages/native/.turbo/turbo-build.log",
+    "packages/native/dist",
+    "packages/native/dist/index.cjs",
+    "packages/native/dist/index.cjs.map",
+    "packages/native/dist/index.d.cts",
+    "packages/native/dist/index.d.ts",
+    "packages/native/dist/index.js",
+    "packages/native/dist/index.js.map"
+  ]
+}

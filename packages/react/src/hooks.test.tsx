@@ -59,7 +59,9 @@ describe("useAISecurity", () => {
     const { result } = renderHook(() => useAISecurity(), { wrapper });
     let allowed = true;
     act(() => {
-      allowed = result.current.guardPrompt({ input: "key sk-abcdefghijklmnopqrstuvwx1234" }).allowed;
+      allowed = result.current.guardPrompt({
+        input: "key sk-abcdefghijklmnopqrstuvwx1234",
+      }).allowed;
     });
     expect(allowed).toBe(false);
     expect(result.current.findings.length).toBeGreaterThan(0);

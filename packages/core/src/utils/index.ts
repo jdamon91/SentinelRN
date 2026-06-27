@@ -18,7 +18,12 @@ export function roundScore(value: number): number {
  */
 export function slugId(...parts: string[]): string {
   return parts
-    .map((p) => p.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, ""))
+    .map((p) =>
+      p
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "_")
+        .replace(/^_+|_+$/g, ""),
+    )
     .filter(Boolean)
     .join(".");
 }
