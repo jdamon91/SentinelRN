@@ -8,5 +8,4 @@ export default defineConfig({
   sourcemap: true,
   treeshake: true,
   target: "es2021",
-  tsconfig: "tsconfig.build.json",
 });
