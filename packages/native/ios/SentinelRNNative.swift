@@ -1,4 +1,5 @@
 import Foundation
+import MachO
 
 /**
  SentinelRN iOS runtime-integrity detectors.
@@ -21,6 +22,7 @@ class SentinelRNNative: NSObject {
       "isJailbroken": isJailbroken(),
       "isSimulator": isSimulator(),
       "isDebuggerAttached": isDebuggerAttached(),
+      "isHookingDetected": isHookingDetected(),
     ]
     resolve(snapshot)
   }
@@ -33,23 +35,15 @@ class SentinelRNNative: NSObject {
 
   private func isJailbroken() -> Bool {
     if isSimulator() { return false }
-    return hasJailbreakPaths() || canWriteOutsideSandbox() || canOpenCydiaScheme()
+    return hasJailbreakPaths()
+      || canWriteOutsideSandbox()
+      || hasSuspiciousSymlinks()
+      || canOpenJailbreakScheme()
   }
 
   private func hasJailbreakPaths() -> Bool {
-    let paths = [
-      "/Applications/Cydia.app",
-      "/Applications/Sileo.app",
-      "/Library/MobileSubstrate/MobileSubstrate.dylib",
-      "/usr/sbin/sshd",
-      "/usr/bin/ssh",
-      "/bin/bash",
-      "/etc/apt",
-      "/private/var/lib/apt/",
-      "/private/var/lib/cydia",
-    ]
     let fm = FileManager.default
-    for path in paths where fm.fileExists(atPath: path) {
+    for path in Self.jailbreakPaths where fm.fileExists(atPath: path) {
       return true
     }
     return false
@@ -66,21 +60,39 @@ class SentinelRNNative: NSObject {
     }
   }
 
-  private func canOpenCydiaScheme() -> Bool {
-    guard let url = URL(string: "cydia://package/com.example.package") else { return false }
-    // UIApplication.canOpenURL must run on the main thread.
-    var result = false
-    if Thread.isMainThread {
-      result = openURLCheck(url)
-    } else {
-      DispatchQueue.main.sync { result = openURLCheck(url) }
+  private func hasSuspiciousSymlinks() -> Bool {
+    let fm = FileManager.default
+    for path in ["/Applications", "/var/stash", "/usr/libexec"] {
+      if let attrs = try? fm.attributesOfItem(atPath: path),
+        let type = attrs[.type] as? FileAttributeType,
+        type == .typeSymbolicLink {
+        return true
+      }
     }
+    return false
+  }
+
+  private func canOpenJailbreakScheme() -> Bool {
+    let schemes = ["cydia://package/com.example.package", "sileo://", "zbra://"]
+    var result = false
+    let check = {
+      for scheme in schemes {
+        if let url = URL(string: scheme), self.openURLCheck(url) {
+          result = true
+          break
+        }
+      }
+    }
+    if Thread.isMainThread { check() } else { DispatchQueue.main.sync(execute: check) }
     return result
   }
 
   private func openURLCheck(_ url: URL) -> Bool {
     #if canImport(UIKit)
-    return UIApplicationShared()?.perform(NSSelectorFromString("canOpenURL:"), with: url) != nil
+    guard let app = UIApplicationShared() else { return false }
+    let sel = NSSelectorFromString("canOpenURL:")
+    guard app.responds(to: sel) else { return false }
+    return app.perform(sel, with: url) != nil
     #else
     return false
     #endif
@@ -113,4 +125,55 @@ class SentinelRNNative: NSObject {
     if result != 0 { return false }
     return (info.kp_proc.p_flag & P_TRACED) != 0
   }
+
+  // MARK: - Hooking / instrumentation detection
+
+  private func isHookingDetected() -> Bool {
+    return hasInjectedLibraries() || hasSuspiciousDyldImages()
+  }
+
+  private func hasInjectedLibraries() -> Bool {
+    if let env = getenv("DYLD_INSERT_LIBRARIES") {
+      return String(cString: env).isEmpty == false
+    }
+    return false
+  }
+
+  private func hasSuspiciousDyldImages() -> Bool {
+    let suspicious = ["substrate", "substitute", "frida", "cycript", "libhooker", "tweak"]
+    let count = _dyld_image_count()
+    for i in 0..<count {
+      if let namePtr = _dyld_get_image_name(i) {
+        let name = String(cString: namePtr).lowercased()
+        if suspicious.contains(where: { name.contains($0) }) {
+          return true
+        }
+      }
+    }
+    return false
+  }
+
+  private static let jailbreakPaths = [
+    "/Applications/Cydia.app",
+    "/Applications/Sileo.app",
+    "/Applications/Zebra.app",
+    "/Applications/Filza.app",
+    "/Applications/blackra1n.app",
+    "/Applications/FakeCarrier.app",
+    "/Library/MobileSubstrate/MobileSubstrate.dylib",
+    "/Library/MobileSubstrate/DynamicLibraries",
+    "/usr/sbin/sshd",
+    "/usr/bin/ssh",
+    "/usr/libexec/ssh-keysign",
+    "/bin/bash",
+    "/bin/sh",
+    "/etc/apt",
+    "/etc/ssh/sshd_config",
+    "/private/var/lib/apt",
+    "/private/var/lib/apt/",
+    "/private/var/lib/cydia",
+    "/private/var/tmp/cydia.log",
+    "/private/var/jb",
+    "/var/jb",
+  ]
 }
