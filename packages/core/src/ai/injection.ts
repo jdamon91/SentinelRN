@@ -64,6 +64,38 @@ export const INJECTION_RULES: InjectionRule[] = [
     message: "Text contains instruction-injection markers (e.g. fake system tags).",
     pattern: /(?:\[\/?(?:system|inst|assistant)\]|<\/?(?:system|im_start|im_end)>|###\s*system)/i,
   },
+  {
+    id: "ignore_system_prompt",
+    severity: "high",
+    confidence: "medium",
+    message: "Attempt to ignore or bypass the system prompt.",
+    pattern:
+      /\b(?:ignore|bypass|forget|disregard)\b[^.?!\n]{0,30}\b(?:system|developer)\b[^.?!\n]{0,15}\b(?:prompt|message|instructions?)\b/i,
+  },
+  {
+    id: "new_instructions",
+    severity: "medium",
+    confidence: "medium",
+    message: "Attempt to inject a new instruction block.",
+    pattern:
+      /\b(?:new|updated|revised|real)\s+(?:instructions?|rules?|task|system\s+prompt)\b\s*[:.-]/i,
+  },
+  {
+    id: "repeat_verbatim",
+    severity: "medium",
+    confidence: "medium",
+    message: "Attempt to extract the prompt by asking it to be repeated verbatim.",
+    pattern:
+      /\b(?:repeat|print|output|echo)\b[^.?!\n]{0,30}\b(?:everything\s+)?(?:above|verbatim|word\s+for\s+word|exactly)\b/i,
+  },
+  {
+    id: "encoded_payload",
+    severity: "low",
+    confidence: "low",
+    message: "Text asks the model to decode an encoded payload, a common obfuscation.",
+    pattern:
+      /\b(?:base64|rot13|hex|decode)\b[^.?!\n]{0,30}\b(?:then|and)?\b[^.?!\n]{0,20}\b(?:execute|run|follow|do)\b/i,
+  },
 ];
 
 export interface InjectionMatch {
