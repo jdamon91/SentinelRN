@@ -4,6 +4,11 @@
   "private": true,
   "description": "Runtime integrity and AI security for React Native apps.",
   "packageManager": "pnpm@10.33.0",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
   "scripts": {
     "build": "turbo build",
     "test": "turbo test",
