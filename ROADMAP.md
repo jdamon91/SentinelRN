@@ -23,9 +23,9 @@ The framework-agnostic engine. **Shipped in 0.1.**
 - [x] Pluggable `IntegrityProvider` + graceful JS fallback
 - [x] React hooks + `SentinelProvider`
 - [x] Example app
-- [ ] New-architecture TurboModule codegen spec
-- [ ] Expand detector coverage + hardening
-- [ ] Documentation site (`apps/docs`)
+- [x] New-architecture TurboModule codegen spec
+- [x] Expand detector coverage + hardening
+- [x] Documentation site (`apps/docs`)
 
 ## Phase 3 — Attestation & advanced detection
 

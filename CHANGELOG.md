@@ -19,7 +19,15 @@ follow [Semantic Versioning](https://semver.org/) after 1.0.
   - Cohesive `SentinelRN` API with `configure()` and a shared singleton.
 - **`@sentinelrn/native` 0.1.0** — Android (Kotlin) and iOS (Swift) runtime
   integrity detectors behind a pluggable `IntegrityProvider`, with a graceful
-  JS-only fallback.
+  JS-only fallback. Includes a new-architecture TurboModule codegen spec
+  (`codegenConfig`) and hardened detectors (root cloaking, busybox, Frida port,
+  app-tampering/sideload, iOS dyld-injection and expanded jailbreak paths).
+- **Hardened AI detection** — added Stripe, SendGrid, npm, Twilio, GitHub
+  fine-grained, Slack-webhook, and bearer-token secret patterns, plus injection
+  rules for system-prompt bypass, injected instruction blocks, verbatim
+  extraction, and encoded-payload obfuscation.
+- **Documentation site** (`apps/docs`) — a VitePress site with guides and a full
+  API reference.
 - **`@sentinelrn/react` 0.1.0** — `SentinelProvider` and the `useDeviceIntegrity`,
   `useAISecurity`, `useSentinelPolicy`, and `useSentinel` hooks.
 - **Example app** — an Expo demo exercising integrity reports, the prompt guard,
