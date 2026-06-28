@@ -40,6 +40,18 @@ const report = await SentinelRN.integrity.check();
 
 When the native module is unavailable (Expo Go, web, tests), the provider falls back to best-effort JS-only heuristics and **never throws** — a detection gap becomes missing signals, not a crash. Meaningful root/jailbreak/hooking detection requires the native module in a development or production build.
 
+## Architecture support
+
+Works on both the **legacy bridge** and the **new architecture** (Fabric /
+TurboModules, bridgeless).
+
+- A codegen spec ships at [`src/NativeSentinelRNNative.ts`](src/NativeSentinelRNNative.ts)
+  and is wired via the `codegenConfig` block in `package.json`, so
+  `react-native-codegen` generates typed TurboModule interfaces at app build time.
+- At runtime the module is resolved through `TurboModuleRegistry.get` first, then
+  `NativeModules` — so the same provider works under either architecture, and
+  returns `null` (degrading gracefully) when neither is present.
+
 > Detection is heuristic and an arms race. SentinelRN raises attacker cost; it does not guarantee detection. See the [threat model](https://github.com/sentinelrn/sentinelrn/blob/main/docs/THREAT_MODEL.md).
 
 MIT © SentinelRN

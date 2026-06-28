@@ -8,5 +8,6 @@
       "@sentinelrn/core": ["../core/src/index.ts"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["src/NativeSentinelRNNative.ts"]
 }
