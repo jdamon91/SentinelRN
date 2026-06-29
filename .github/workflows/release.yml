@@ -17,21 +17,38 @@ jobs:
   release:
     name: Version or publish
     runs-on: ubuntu-latest
+    # Skip cleanly until an NPM_TOKEN secret is configured, so the workflow never
+    # fails on auth before publishing is set up.
+    env:
+      HAS_NPM_TOKEN: ${{ secrets.NPM_TOKEN != '' }}
     steps:
+      - name: Publishing status
+        run: |
+          if [ "$HAS_NPM_TOKEN" = "true" ]; then
+            echo "NPM_TOKEN is configured — release steps will run."
+          else
+            echo "NPM_TOKEN not set — skipping release. Add the secret to enable publishing."
+          fi
+
       - uses: actions/checkout@v4
+        if: ${{ env.HAS_NPM_TOKEN == 'true' }}
 
       - uses: pnpm/action-setup@v4
+        if: ${{ env.HAS_NPM_TOKEN == 'true' }}
 
       - uses: actions/setup-node@v4
+        if: ${{ env.HAS_NPM_TOKEN == 'true' }}
         with:
           node-version: 20
           cache: pnpm
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
+        if: ${{ env.HAS_NPM_TOKEN == 'true' }}
         run: pnpm install --frozen-lockfile
 
       - name: Create release PR or publish to npm
+        if: ${{ env.HAS_NPM_TOKEN == 'true' }}
         uses: changesets/action@v1
         with:
           # When changesets exist, this opens/updates a "Version Packages" PR.
