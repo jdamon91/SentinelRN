@@ -1,0 +1,58 @@
+/* SentinelRN — security-themed VitePress overrides + landing design tokens. */
+
+:root {
+  /* Brand (cyan → sky) drives links, buttons, focus rings across the docs. */
+  --vp-c-brand-1: #22d3ee;
+  --vp-c-brand-2: #38bdf8;
+  --vp-c-brand-3: #0ea5e9;
+  --vp-c-brand-soft: rgba(34, 211, 238, 0.14);
+
+  /* Sentinel design tokens used by the landing page. */
+  --sn-cyan: #22d3ee;
+  --sn-sky: #38bdf8;
+  --sn-teal: #2dd4bf;
+  --sn-green: #34d399;
+  --sn-indigo: #818cf8;
+  --sn-violet: #a78bfa;
+  --sn-danger: #fb7185;
+  --sn-warn: #fbbf24;
+
+  --sn-bg: #060912;
+  --sn-bg-2: #0a0f1d;
+  --sn-panel: rgba(148, 197, 255, 0.04);
+  --sn-border: rgba(120, 180, 255, 0.14);
+  --sn-border-strong: rgba(120, 210, 255, 0.28);
+  --sn-text: #e6edf6;
+  --sn-muted: #93a3bd;
+
+  --sn-grad: linear-gradient(100deg, #22d3ee 0%, #38bdf8 38%, #818cf8 70%, #34d399 100%);
+  --sn-glow-cyan: rgba(34, 211, 238, 0.55);
+  --sn-glow-indigo: rgba(129, 140, 248, 0.45);
+}
+
+/* Dark theme: deepen the docs background to match the cinematic landing. */
+.dark {
+  --vp-c-bg: #070b16;
+  --vp-c-bg-alt: #0a0f1d;
+  --vp-c-bg-soft: #0c1222;
+  --vp-c-brand-1: #34e0f0;
+  --vp-c-brand-2: #38bdf8;
+}
+
+/* Branded home hero button gradient (used if default hero ever shows). */
+:root {
+  --vp-button-brand-bg: var(--sn-cyan);
+  --vp-button-brand-hover-bg: var(--sn-sky);
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: var(--sn-grad);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
