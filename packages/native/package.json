@@ -55,5 +55,14 @@
     "android": {
       "javaPackageName": "com.sentinelrn.nativemodule"
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdamon91/SentinelRN.git",
+    "directory": "packages/native"
+  },
+  "homepage": "https://github.com/jdamon91/SentinelRN/tree/main/packages/native#readme",
+  "bugs": {
+    "url": "https://github.com/jdamon91/SentinelRN/issues"
   }
 }
