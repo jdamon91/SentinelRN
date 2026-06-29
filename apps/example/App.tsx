@@ -3,12 +3,12 @@ import { SentinelProvider } from "@sentinelrn/react";
 import { StatusBar } from "expo-status-bar";
 import { useState } from "react";
 import { SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native";
-import { Card } from "./src/components/Card.js";
-import { IntegrityCard } from "./src/components/IntegrityCard.js";
-import { PolicySelector } from "./src/components/PolicySelector.js";
-import { PromptGuardCard } from "./src/components/PromptGuardCard.js";
-import type { DemoScenario } from "./src/demoProvider.js";
-import { colors } from "./src/theme.js";
+import { Card } from "./src/components/Card";
+import { IntegrityCard } from "./src/components/IntegrityCard";
+import { PolicySelector } from "./src/components/PolicySelector";
+import { PromptGuardCard } from "./src/components/PromptGuardCard";
+import type { DemoScenario } from "./src/demoProvider";
+import { colors } from "./src/theme";
 
 /**
  * SentinelRN example app.

@@ -2,10 +2,10 @@ import type { PolicyMode } from "@sentinelrn/core";
 import { useDeviceIntegrity, useSentinel, useSentinelPolicy } from "@sentinelrn/react";
 import { useEffect } from "react";
 import { ActivityIndicator, Pressable, StyleSheet, Text, View } from "react-native";
-import { createDemoProvider, type DemoScenario } from "../demoProvider.js";
-import { colors, riskColor, severityColor } from "../theme.js";
-import { Badge } from "./Badge.js";
-import { Card } from "./Card.js";
+import { createDemoProvider, type DemoScenario } from "../demoProvider";
+import { colors, riskColor, severityColor } from "../theme";
+import { Badge } from "./Badge";
+import { Card } from "./Card";
 
 const SCENARIOS: DemoScenario[] = ["clean", "jailbroken", "rooted", "emulator"];
 

@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { colors } from "../theme.js";
+import { colors } from "../theme";
 
 interface CardProps {
   title: string;

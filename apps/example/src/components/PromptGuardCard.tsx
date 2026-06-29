@@ -2,9 +2,9 @@ import type { AIGuardPolicy, AIGuardResult, PolicyMode } from "@sentinelrn/core"
 import { useAISecurity } from "@sentinelrn/react";
 import { useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
-import { colors, severityColor } from "../theme.js";
-import { Badge } from "./Badge.js";
-import { Card } from "./Card.js";
+import { colors, severityColor } from "../theme";
+import { Badge } from "./Badge";
+import { Card } from "./Card";
 
 const SAMPLES: { label: string; text: string }[] = [
   { label: "API key", text: "Summarize this. My key is sk-abcdef1234567890abcdef1234." },

@@ -1,6 +1,6 @@
 import type { PolicyMode } from "@sentinelrn/core";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { colors } from "../theme.js";
+import { colors } from "../theme";
 
 const MODES: PolicyMode[] = ["monitor", "warn", "block"];
 

@@ -51,3 +51,6 @@ coverage/
 
 # Turborepo
 .turbo/
+
+# Expo export output
+.expo-export/
