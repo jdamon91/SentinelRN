@@ -18,10 +18,14 @@
     "test": "turbo test",
     "lint": "biome check .",
     "format": "biome format --write .",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "turbo build --filter=\"./packages/*\" && changeset publish"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.1",
+    "@changesets/cli": "^2.31.0",
     "@testing-library/react": "^16.3.2",
     "@types/node": "^20.19.43",
     "@types/react": "18.3.12",

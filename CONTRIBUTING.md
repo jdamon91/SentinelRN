@@ -61,7 +61,27 @@ pnpm --filter @sentinelrn/core test:watch
 - Use clear, conventional-style commit messages (`feat(core): …`, `fix(native): …`).
 - Keep PRs focused. Ensure `pnpm lint`, `pnpm typecheck`, `pnpm test`, and
   `pnpm build` all pass before requesting review.
-- Update relevant docs and the [CHANGELOG](CHANGELOG.md).
+- Include a changeset for any user-facing package change (see below).
+
+## Releasing
+
+Releases are automated with [Changesets](https://github.com/changesets/changesets).
+
+1. After making a change to a published package, add a changeset:
+
+   ```bash
+   pnpm changeset
+   ```
+
+   Pick the affected packages and a semver bump (patch/minor/major) and describe
+   the change. This writes a markdown file under `.changeset/`.
+
+2. On merge to `main`, the **Release** workflow opens a "Version Packages" PR that
+   bumps versions and updates changelogs.
+
+3. Merging that PR publishes the updated packages to npm (requires an `NPM_TOKEN`
+   repository secret). The `@sentinelrn/example` and `@sentinelrn/docs` apps are
+   ignored and never published.
 
 ## Reporting security issues
 
