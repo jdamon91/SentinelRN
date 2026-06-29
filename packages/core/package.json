@@ -1,6 +1,6 @@
 {
   "name": "@sentinelrn/core",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Application Trust Runtime for React Native — runtime integrity and AI security engine.",
   "license": "MIT",
   "type": "module",
