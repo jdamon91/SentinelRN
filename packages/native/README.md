@@ -1,6 +1,6 @@
 # @sentinelrn/native
 
-Native runtime-integrity detectors for [SentinelRN](https://github.com/sentinelrn/sentinelrn), with Android (Kotlin) and iOS (Swift) implementations.
+Native runtime-integrity detectors for [SentinelRN](https://github.com/jdamon91/SentinelRN), with Android (Kotlin) and iOS (Swift) implementations.
 
 This package implements the `IntegrityProvider` interface from `@sentinelrn/core`. It collects a flat "integrity snapshot" from the device and maps it into scored threat signals — all severity/confidence/scoring lives in core, keeping detection consistent across platforms.
 
@@ -52,6 +52,6 @@ TurboModules, bridgeless).
   `NativeModules` — so the same provider works under either architecture, and
   returns `null` (degrading gracefully) when neither is present.
 
-> Detection is heuristic and an arms race. SentinelRN raises attacker cost; it does not guarantee detection. See the [threat model](https://github.com/sentinelrn/sentinelrn/blob/main/docs/THREAT_MODEL.md).
+> Detection is heuristic and an arms race. SentinelRN raises attacker cost; it does not guarantee detection. See the [threat model](https://github.com/jdamon91/SentinelRN/blob/main/docs/THREAT_MODEL.md).
 
 MIT © SentinelRN

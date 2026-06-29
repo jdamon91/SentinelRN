@@ -5,7 +5,7 @@
 If you discover a security vulnerability in SentinelRN, please report it
 privately. **Do not open a public GitHub issue.**
 
-- Use [GitHub Security Advisories](https://github.com/sentinelrn/sentinelrn/security/advisories/new)
+- Use [GitHub Security Advisories](https://github.com/jdamon91/SentinelRN/security/advisories/new)
   ("Report a vulnerability"), or
 - email the maintainers (see the repository's organization profile).
 

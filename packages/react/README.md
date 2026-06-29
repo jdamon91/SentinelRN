@@ -1,6 +1,6 @@
 # @sentinelrn/react
 
-Idiomatic React bindings for [SentinelRN](https://github.com/sentinelrn/sentinelrn). This layer contains **no security logic** — it only consumes `@sentinelrn/core`.
+Idiomatic React bindings for [SentinelRN](https://github.com/jdamon91/SentinelRN). This layer contains **no security logic** — it only consumes `@sentinelrn/core`.
 
 ## Install
 

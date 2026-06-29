@@ -11,8 +11,8 @@ risk-based security framework, and contributions of all kinds are welcome.
 ## Getting started
 
 ```bash
-git clone https://github.com/sentinelrn/sentinelrn.git
-cd sentinelrn
+git clone https://github.com/jdamon91/SentinelRN.git
+cd SentinelRN
 pnpm install
 pnpm build
 pnpm test

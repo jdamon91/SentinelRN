@@ -31,4 +31,4 @@ app. Ongoing: broader detector coverage and this documentation site.
 - Enterprise policy packs
 
 The authoritative roadmap lives in
-[`ROADMAP.md`](https://github.com/sentinelrn/sentinelrn/blob/main/ROADMAP.md).
+[`ROADMAP.md`](https://github.com/jdamon91/SentinelRN/blob/main/ROADMAP.md).

@@ -17,11 +17,11 @@ export default defineConfig({
         items: [
           {
             text: "Changelog",
-            link: "https://github.com/sentinelrn/sentinelrn/blob/main/CHANGELOG.md",
+            link: "https://github.com/jdamon91/SentinelRN/blob/main/CHANGELOG.md",
           },
           {
             text: "Contributing",
-            link: "https://github.com/sentinelrn/sentinelrn/blob/main/CONTRIBUTING.md",
+            link: "https://github.com/jdamon91/SentinelRN/blob/main/CONTRIBUTING.md",
           },
         ],
       },
@@ -57,7 +57,7 @@ export default defineConfig({
         },
       ],
     },
-    socialLinks: [{ icon: "github", link: "https://github.com/sentinelrn/sentinelrn" }],
+    socialLinks: [{ icon: "github", link: "https://github.com/jdamon91/SentinelRN" }],
     footer: {
       message:
         "Released under the MIT License. SentinelRN is risk-based — always enforce trust on the server too.",

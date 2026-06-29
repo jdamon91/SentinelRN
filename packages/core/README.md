@@ -1,6 +1,6 @@
 # @sentinelrn/core
 
-The framework-agnostic engine behind [SentinelRN](https://github.com/sentinelrn/sentinelrn) — the Application Trust Runtime for React Native.
+The framework-agnostic engine behind [SentinelRN](https://github.com/jdamon91/SentinelRN) — the Application Trust Runtime for React Native.
 
 This package contains all the security logic and **no platform or React code**: shared types, the risk engine, the threat engine, AI detectors (secrets, PII, prompt injection), redaction, and the policy engine — assembled behind a single cohesive `SentinelRN` object.
 

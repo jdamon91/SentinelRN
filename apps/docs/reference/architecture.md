@@ -50,5 +50,5 @@ integrity/  orchestration + IntegrityProvider interface
 core/       config resolution + assembled SentinelRN facade
 ```
 
-See [`docs/REPO_ARCHITECTURE.md`](https://github.com/sentinelrn/sentinelrn/blob/main/docs/REPO_ARCHITECTURE.md)
+See [`docs/REPO_ARCHITECTURE.md`](https://github.com/jdamon91/SentinelRN/blob/main/docs/REPO_ARCHITECTURE.md)
 for the full monorepo layout and tooling.

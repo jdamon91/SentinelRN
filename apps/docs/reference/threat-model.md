@@ -36,4 +36,4 @@ validation, audit logging, and abuse detection.
 > The client can reduce risk. The server must enforce trust.
 
 The full threat model lives in the repository:
-[`docs/THREAT_MODEL.md`](https://github.com/sentinelrn/sentinelrn/blob/main/docs/THREAT_MODEL.md).
+[`docs/THREAT_MODEL.md`](https://github.com/jdamon91/SentinelRN/blob/main/docs/THREAT_MODEL.md).

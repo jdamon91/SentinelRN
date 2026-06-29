@@ -14,7 +14,7 @@ hero:
       link: /guide/what-is-sentinelrn
     - theme: alt
       text: View on GitHub
-      link: https://github.com/sentinelrn/sentinelrn
+      link: https://github.com/jdamon91/SentinelRN
 
 features:
   - icon: 🛡️

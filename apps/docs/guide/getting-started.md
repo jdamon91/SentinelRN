@@ -95,8 +95,8 @@ function Checkout() {
 ## Try the example app
 
 ```bash
-git clone https://github.com/sentinelrn/sentinelrn.git
-cd sentinelrn
+git clone https://github.com/jdamon91/SentinelRN.git
+cd SentinelRN
 pnpm install
 pnpm --filter @sentinelrn/example start
 ```
