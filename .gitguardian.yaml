@@ -1,0 +1,11 @@
+# SentinelRN is a secret-detection library: its test and example fixtures
+# intentionally contain key-shaped strings (fake, non-functional) so the
+# detectors can be exercised. Exclude those paths from secret scanning.
+version: 2
+secret:
+  ignored-paths:
+    - "**/*.test.ts"
+    - "**/*.test.tsx"
+    - "apps/example/**"
+    - "packages/core/src/ai/patterns.ts"
+    - "packages/core/src/ai/injection.ts"
