@@ -7,8 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  build:
-    name: Lint, typecheck, test, build
+  verify:
+    name: Lint, typecheck, test (coverage), build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile --filter "./packages/*..."
+        run: pnpm install --frozen-lockfile
 
       - name: Lint
         run: pnpm lint
@@ -29,8 +29,42 @@ jobs:
       - name: Typecheck
         run: pnpm typecheck
 
-      - name: Test
+      - name: Test (with coverage gate)
         run: pnpm test
 
-      - name: Build
+      - name: Build packages
         run: pnpm build
+
+  docs:
+    name: Build documentation site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build docs
+        run: pnpm --filter @sentinelrn/docs build
+
+  example:
+    name: Typecheck and bundle example app
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build SDK packages
+        run: pnpm --filter "./packages/*" build
+      - name: Typecheck example
+        run: pnpm --filter @sentinelrn/example exec tsc --noEmit
+      - name: Bundle example (Metro / expo export)
+        run: pnpm --filter @sentinelrn/example exec expo export --platform ios --output-dir .expo-export
